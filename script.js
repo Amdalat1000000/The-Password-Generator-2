@@ -122,38 +122,42 @@ function getPasswordOptions () {
     console.log("Continue with code ...");
   }
 
-  var options = [
-    passwordLength,
-    upper,
-    lower,
-    numeric,
-    special
-   ]
+  var passwordOptions = {
+    passwordLength: passwordLength,
+    lower: lower,
+    upper: upper,
+    special: special,
+    numeric: numeric,  
+  };
 
   // if condition to validate the USER INPUT
 
   // if condition to validate the USER INPUT
-  return options;
+  //return passwordOptions;
+    return console.log(passwordOptions);
 }
+
+getPasswordOptions();
+
 
 // function to get a random element from an array
-function getRandom(arr) {
-  return Math.floor((Math.random() * arr.length - 1));
-}
-// Function to generate password with user input
-function generatePassword() {
-  // empty dataset variable to act as a PLACEHOLDER
-  var options = [
-    passwordLength = parseInt(prompt("How many characters would you like in your password?")),
-    upper,
-    lower,
-    numeric,
-    special
-  ]
-  getPasswordOptions();
-  // var options = getPasswordOptions();
-  var randomPassword = [];  
-  var availableCharacters = [];}
+// function getRandom(arr) {
+//   return Math.floor((Math.random() * arr.length - 1));
+// }
+// // Function to generate password with user input
+// function generatePassword() {
+//   // empty dataset variable to act as a PLACEHOLDER
+//   var options = [
+//     passwordLength = parseInt(prompt("How many characters would you like in your password?")),
+//     upper,
+//     lower,
+//     numeric,
+//     special
+//   ]
+//   getPasswordOptions();
+//   // var options = getPasswordOptions();
+//   var randomPassword = [];  
+//   var availableCharacters = [];}
 
   // if (options.lower === true) 
   // if (options === true) {
@@ -214,57 +218,57 @@ if (options[4] === true) {
 //   numeric,
 //   special
 // }
-// function to get a random element from numericCharacters array
-getRandom(numericCharacters);
-// Function to generate password with user input
-generatePassword(numericCharacters);
-if (options[3] === true) {
-  for (let i = 0; i < options.passwordLength; i++) {
-   var randIndex = getRandom(numericCharacters)
-    var randChar = numericCharacters[randIndex];
-    numericCharacters.push(randChar)
-  }
-}
+// // function to get a random element from numericCharacters array
+// getRandom(numericCharacters);
+// // Function to generate password with user input
+// generatePassword(numericCharacters);
+// if (options[3] === true) {
+//   for (let i = 0; i < options.passwordLength; i++) {
+//    var randIndex = getRandom(numericCharacters)
+//     var randChar = numericCharacters[randIndex];
+//     numericCharacters.push(randChar)
+//   }
+// }
 
 
-// function to get a random element from lowerCasedCharacters array
-getRandom(lowerCasedCharacters);
-// Function to generate password with user input
-generatePassword(lowerCasedCharacters);
+// // function to get a random element from lowerCasedCharacters array
+// getRandom(lowerCasedCharacters);
+// // Function to generate password with user input
+// generatePassword(lowerCasedCharacters);
 
-  if (options[2] === true) {
-    for (let i = 0; i < options.passwordLength; i++) {
-     var randIndex = getRandom(lowerCasedCharacters)
-      var randChar = lowerCasedCharacters[randIndex];
-      lowerCasedCharacters.push(randChar)
-    }
-  }
+//   if (options[2] === true) {
+//     for (let i = 0; i < options.passwordLength; i++) {
+//      var randIndex = getRandom(lowerCasedCharacters)
+//       var randChar = lowerCasedCharacters[randIndex];
+//       lowerCasedCharacters.push(randChar)
+//     }
+  // }
 
 
   // function to get a random element from upperCasedCharacters array
-getRandom(upperCasedCharacters); 
-generatePassword(upperCasedCharacters);
+// getRandom(upperCasedCharacters); 
+// generatePassword(upperCasedCharacters);
 
-  if (options[1] === true) {
-    for (let i = 0; i < options.passwordLength; i++) {
-     var randIndex = getRandom(upperCasedCharacters)
-      var randChar = upperCasedCharacters[randIndex];
-      upperCasedCharacters.push(randChar)
-    }
-  }
+//   if (options[1] === true) {
+//     for (let i = 0; i < options.passwordLength; i++) {
+//      var randIndex = getRandom(upperCasedCharacters)
+//       var randChar = upperCasedCharacters[randIndex];
+//       upperCasedCharacters.push(randChar)
+//     }
+//   }
 
-    for (let i = 0; i < options.passwordLength; i++) {
-     var randIndex = getRandom(availableCharacters);
-      var randChar = availableCharacters[randIndex];
-      randomPassword.push(randChar);
+//     for (let i = 0; i < options.passwordLength; i++) {
+//      var randIndex = getRandom(availableCharacters);
+//       var randChar = availableCharacters[randIndex];
+//       randomPassword.push(randChar);
 
-      // return randomPassword.join("");
-    }
+//       // return randomPassword.join("");
+//     }
       
 
-  // return randomPassword.join("");
+//   // return randomPassword.join("");
 
-  document.getElementById("password").textContent = randomPassword.join("");
+//   document.getElementById("password").textContent = randomPassword.join("");
 
 
 // Get references to the #generate element
