@@ -86,17 +86,18 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+var passwordLength;
 // Function to prompt user for password options
 function getPasswordOptions () {  
-  const passwordLength = parseInt(prompt("How many characters would you like in your password?"));  
-  // console.log(passwordLength);
+  passwordLength = parseInt(prompt("How many characters would you like in your password?"));  
+  console.log(passwordLength);
   // console.log(typeof passwordLength);
 
-  if (passwordLength >= 10 || passwordLength <= 64) {
-    alert("Valid Password");  
-  } else { 
+  if (passwordLength <= 10 || passwordLength >= 64) {
     alert("Invalid Password");
+    return getPasswordOptions();  
+  } else { 
+    alert("Valid Password");
   } 
 
   // variables to gather lower and uppercase options from the USER
@@ -129,147 +130,45 @@ function getPasswordOptions () {
     special: special,
     numeric: numeric,  
   };
-
-  // if condition to validate the USER INPUT
+  //if user selected certain criteria then we add the array
+  var master = [];
+  if(lower){
+    //then we add lower case letters
+    master = master.concat(lowerCasedCharacters);
+  }
+  if(upper){
+    master = master.concat(upperCasedCharacters);
+  }
+  if(numeric){
+    master = master.concat(numericCharacters);
+  }
+  if(special){
+    master = master.concat(specialCharacters);
+  }
 
   // if condition to validate the USER INPUT
   //return passwordOptions;
-    return console.log(passwordOptions);
+    return master;
 }
 
 getPasswordOptions();
 
 
-// function to get a random element from an array
-// function getRandom(arr) {
-//   return Math.floor((Math.random() * arr.length - 1));
-// }
-// // Function to generate password with user input
-// function generatePassword() {
-//   // empty dataset variable to act as a PLACEHOLDER
-//   var options = [
-//     passwordLength = parseInt(prompt("How many characters would you like in your password?")),
-//     upper,
-//     lower,
-//     numeric,
-//     special
-//   ]
-//   getPasswordOptions();
-//   // var options = getPasswordOptions();
-//   var randomPassword = [];  
-//   var availableCharacters = [];}
-
-  // if (options.lower === true) 
-  // if (options === true) {
-  //   for (let i = 0; i < options.passwordLength; i++) {
-  //   //  var randIndex = getRandom(lowerCasedCharacters && upperCasedCharacters && numericCharacters && specialCharacters);
-  //    var randIndex = getRandom();
-  //     var randChar = availableCharacters[randIndex];
-  //     availableCharacters.push(randChar);
-  //   } 
-  // }
-  
-  // repeat above code 3 more times for other sets or arrays for upper, numeric and special
-
-// function to get a random element from specialCharacters array
-
-// passwordLength = parseInt(prompt("How many characters would you like in your password?"));
-// upper = confirm("Would you like to use UPPERCASE characters in your password?");
-// lower = confirm("Would you like to use LOWERCASE characters in your password?");
-// upper = confirm("Would you like to use UPPERCASE characters in your password?");
-// numeric = confirm("Would you like to use NUMERIC characters in your password?");
-// special = confirm("Would you like to use special characters in your password?");
-// getRandom(specialCharacters);
-// var options = {
-//   passwordLength,
-//   upper,
-//   lower,
-//   numeric,
-//   special
-// }
-// options = {
-//   passwordLength,
-//   upper,
-//   lower,
-//   numeric,
-//   special
-// };
-
 // Function to generate password with user input
-generatePassword(specialCharacters);
-if (options[4] === true) {
-  for (let i = 0; i < options.passwordLength; i++) {
-   var randIndex = getRandom(specialCharacters)
+function generatePassword(){
+  var specialCharacters = getPasswordOptions()
+  console.log(specialCharacters)
+  var password = "";
+  //make a loop that executes passwordLength times;
+  for (let i = 0; i < passwordLength; i++) {
+    //adding to password a random character
+    // var randIndex = Math.floor(Math.random() * arr.length);
+    var randIndex = Math.floor(Math.random() * passwordLength);
     var randChar = specialCharacters[randIndex];
-    specialCharacters.push(randChar)
-  }
+    password+= randChar
+   }
+   return password;
 }
-
-// passwordLength = parseInt(prompt("How many characters would you like in your password?"));
-// upper = confirm("Would you like to use UPPERCASE characters in your password?");
-// lower = confirm("Would you like to use LOWERCASE characters in your password?");
-// upper = confirm("Would you like to use UPPERCASE characters in your password?");
-// numeric = confirm("Would you like to use NUMERIC characters in your password?");
-// special = confirm("Would you like to use special characters in your password?");
-// var options = {
-//   passwordLength,
-//   upper,
-//   lower,
-//   numeric,
-//   special
-// }
-// // function to get a random element from numericCharacters array
-// getRandom(numericCharacters);
-// // Function to generate password with user input
-// generatePassword(numericCharacters);
-// if (options[3] === true) {
-//   for (let i = 0; i < options.passwordLength; i++) {
-//    var randIndex = getRandom(numericCharacters)
-//     var randChar = numericCharacters[randIndex];
-//     numericCharacters.push(randChar)
-//   }
-// }
-
-
-// // function to get a random element from lowerCasedCharacters array
-// getRandom(lowerCasedCharacters);
-// // Function to generate password with user input
-// generatePassword(lowerCasedCharacters);
-
-//   if (options[2] === true) {
-//     for (let i = 0; i < options.passwordLength; i++) {
-//      var randIndex = getRandom(lowerCasedCharacters)
-//       var randChar = lowerCasedCharacters[randIndex];
-//       lowerCasedCharacters.push(randChar)
-//     }
-  // }
-
-
-  // function to get a random element from upperCasedCharacters array
-// getRandom(upperCasedCharacters); 
-// generatePassword(upperCasedCharacters);
-
-//   if (options[1] === true) {
-//     for (let i = 0; i < options.passwordLength; i++) {
-//      var randIndex = getRandom(upperCasedCharacters)
-//       var randChar = upperCasedCharacters[randIndex];
-//       upperCasedCharacters.push(randChar)
-//     }
-//   }
-
-//     for (let i = 0; i < options.passwordLength; i++) {
-//      var randIndex = getRandom(availableCharacters);
-//       var randChar = availableCharacters[randIndex];
-//       randomPassword.push(randChar);
-
-//       // return randomPassword.join("");
-//     }
-      
-
-//   // return randomPassword.join("");
-
-//   document.getElementById("password").textContent = randomPassword.join("");
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
