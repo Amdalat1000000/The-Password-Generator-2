@@ -164,6 +164,7 @@ function generatePassword(){
     //adding to password a random character
     // var randIndex = Math.floor(Math.random() * arr.length);
     var randIndex = Math.floor(Math.random() * passwordLength);
+    // var randChar = passwordLength[randIndex];
     var randChar = specialCharacters[randIndex];
     password+= randChar
    }
