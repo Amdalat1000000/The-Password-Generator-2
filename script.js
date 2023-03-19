@@ -146,26 +146,25 @@ function getPasswordOptions () {
     master = master.concat(specialCharacters);
   }
 
+  console.log(master)
+
   // if condition to validate the USER INPUT
   //return passwordOptions;
     return master;
 }
 
-getPasswordOptions();
-
-
 // Function to generate password with user input
 function generatePassword(){
-  var specialCharacters = getPasswordOptions()
-  console.log(specialCharacters)
+  var selectedCharacters = getPasswordOptions()
+  console.log(selectedCharacters)
   var password = "";
   //make a loop that executes passwordLength times;
   for (let i = 0; i < passwordLength; i++) {
     //adding to password a random character
     // var randIndex = Math.floor(Math.random() * arr.length);
-    var randIndex = Math.floor(Math.random() * passwordLength);
+    var randIndex = Math.floor(Math.random() * selectedCharacters.length);
     // var randChar = passwordLength[randIndex];
-    var randChar = specialCharacters[randIndex];
+    var randChar = selectedCharacters[randIndex];
     password+= randChar
    }
    return password;
@@ -181,7 +180,6 @@ function writePassword() {
 
   passwordText.value = password;
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
